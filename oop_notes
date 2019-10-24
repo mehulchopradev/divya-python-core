@@ -1,0 +1,10 @@
+Object Oriented programming (OOP)
+- Visualize real world into software
+
+1. Real world actors -> data in the memory
+  - objects
+  - class : objects are create from a class. 1 to n. It gives a data type to an object. 
+    - str, int, float, bool : built in classes
+    - Student : user define classes
+2. Real world actor characteristics -> Attributes of the object
+3. Real world actor actions -> Methods being called on the object

@@ -30,20 +30,30 @@ Even
 Enter ur choice: 4
 '''
 
+# packages
+# Google -> google.com
+# com.google......
+# Abc -> abc.com
+
 # import the module
 # import series
 
 # directly import the functions from the module
-from series import get_fibo_series as fibo, get_even_series
+# from series import get_fibo_series as fibo, get_even_series
+from com.abc.lib.series import get_fibo_series as fibo, get_even_series
 
 
-import math as m
+# import math as m # module namespace conflict
+# import com.abc.lib.math as m # user defined module
+import com.abc.lib.math
+
+from math import factorial # built in module
 
 while True:
-  print('1. Fibo Series\n2. Even Series\n3. Even or Odd\n4. Exit')
+  print('1. Fibo Series\n2. Even Series\n3. Even or Odd\n4. Factorial\n5. Exit')
   choice = int(input('Enter ur choice: '))
 
-  if choice == 4:
+  if choice == 5:
     break # breaks out of the enclosing loop, forcibly
 
   n = int(input('Enter n: '))
@@ -54,6 +64,10 @@ while True:
   elif choice == 2:
     # even series
     print(get_even_series(n))
-  else:
+  elif choice == 3:
     # even or odd
-    print(m.evenodd(n))
+    # print(m.evenodd(n))
+    print(com.abc.lib.math.evenodd(n))
+  else:
+    # factorial
+    print(factorial(n))
