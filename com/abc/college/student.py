@@ -12,7 +12,8 @@ class Student:
   # access class attribute using the class name
   # Student.count
 
-  def __init__(self, name, gender, roll, marks):
+  def __init__(self, name, gender, roll, marks, contact_nos=None):
+    # None means no address. Variable exists but does not store any address
     # create attributes in the self objects
     # constructor
 
@@ -21,13 +22,26 @@ class Student:
     self.gender = gender
     self.roll = roll
     self.marks = marks
+    self.contact_nos = contact_nos
 
     Student.count += 1
 
   def get_details(self):
     # self - address of the current Student object for which get_details was called
-    return 'Name: ' + self.name + '\nGender: ' + self.gender + '\nRoll: ' + str(self.roll) \
-    + '\nMarks: ' + str(self.marks)
+    part1 = 'Name: ' + self.name + '\nGender: ' + self.gender + '\nRoll: ' + str(self.roll) \
+    + '\nMarks: ' + str(self.marks) + '\n'
+
+    part2 = 'Contact Nos :\n'
+    if self.contact_nos:
+      # get into the if, when contact_nos list has atleast 1 element
+      for contact_no in self.contact_nos:
+        part2 += contact_no + '\n'
+    else:
+      # contact_nos is None
+      # contact_nos is []
+      part2 += 'NA'
+    
+    return part1 + part2
 
   def get_grade(self):
     # s1, s2, s3, ... Student object
@@ -44,3 +58,6 @@ class Student:
       grade = 'F'
     
     return grade
+
+  def get_name_roll(self):
+    return (self.name, self.roll) # tuple object

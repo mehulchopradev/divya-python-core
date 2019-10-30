@@ -1,6 +1,6 @@
 from com.abc.college.student import Student
 print(Student.count)
-s1 = Student('mehul', 'm', 10, 45) # 4003 -> Student
+s1 = Student('mehul', 'm', 10, 45, ['8768787', '8768757657']) # 4003 -> Student
 # Internally
 # 1. 4003 -> Student object
 # 2. Student.__init__(4003 'mehul', 'm', 10, 45)
@@ -12,7 +12,7 @@ s1.roll = 10
 s1.marks = 45'''
 
 
-s2 = Student('divya', 'f', 12, 94) # 4001 -> Student
+s2 = Student('divya', 'f', 12, 94, ['986876876']) # 4001 -> Student
 # Internally
 # 1. 4001 -> Student object
 # 2. Student.__init__(4001)
@@ -41,6 +41,13 @@ print(s1.gender)
 print(s2.name)
 print(s2.gender)'''
 
+name, roll = s1.get_name_roll() # tuple unpacking. Works with list unpacking
+'''name = data[0]
+roll = data[-1]'''
+
+print(name)
+print(roll)
+# Student.get_name_roll(s1)
 
 print(s1.get_details())
 # Internally
