@@ -28,8 +28,12 @@ class Student:
 
   def get_details(self):
     # self - address of the current Student object for which get_details was called
-    part1 = 'Name: ' + self.name + '\nGender: ' + self.gender + '\nRoll: ' + str(self.roll) \
-    + '\nMarks: ' + str(self.marks) + '\n'
+    ''' part1 = 'Name: ' + self.name + '\nGender: ' + self.gender + '\nRoll: ' + str(self.roll) \
+    + '\nMarks: ' + str(self.marks) + '\n' '''
+
+    # part1 = 'Name: {0}\nGender: {1}\nRoll: {2}\nMarks: {3}\n'.format(self.name, self.gender, self.roll, self.marks)
+    part1 = 'Name: {name}\nGender: {gender}\nRoll: {roll}\nMarks: {marks}\n'.format(\
+      name=self.name, marks=self.marks, roll=self.roll, gender=self.gender)
 
     part2 = 'Contact Nos :\n'
     if self.contact_nos:
