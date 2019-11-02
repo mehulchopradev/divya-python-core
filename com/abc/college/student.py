@@ -1,67 +1,15 @@
-# for every class in python (user defined / built in), an object is created in the memory during program load
-'''
-class objects
-str -> object
-int -> object
-Student -> object - class object attributes
-'''
+# Student IS-A CollegeUser
+# subclass IS-A superclasss
+# child class IS-A parentclass
 
-class Student:
+# Inheritance
+from .college_user import CollegeUser
 
-  count = 0 # class attribute
-  # access class attribute using the class name
-  # Student.count
-
+class Student(CollegeUser):
   def __init__(self, name, gender, roll, marks, contact_nos=None):
-    # None means no address. Variable exists but does not store any address
-    # create attributes in the self objects
-    # constructor
+    super().__init__(name, gender, contact_nos)
+    # Internally
+    # CollegeUser.__init__(self, name, gender, contact_nos)
 
-    # object attributes
-    self.name = name
-    self.gender = gender
     self.roll = roll
     self.marks = marks
-    self.contact_nos = contact_nos
-
-    Student.count += 1
-
-  def get_details(self):
-    # self - address of the current Student object for which get_details was called
-    ''' part1 = 'Name: ' + self.name + '\nGender: ' + self.gender + '\nRoll: ' + str(self.roll) \
-    + '\nMarks: ' + str(self.marks) + '\n' '''
-
-    # part1 = 'Name: {0}\nGender: {1}\nRoll: {2}\nMarks: {3}\n'.format(self.name, self.gender, self.roll, self.marks)
-    part1 = 'Name: {name}\nGender: {gender}\nRoll: {roll}\nMarks: {marks}\n'.format(\
-      name=self.name, marks=self.marks, roll=self.roll, gender=self.gender)
-
-    part2 = 'Contact Nos :\n'
-    if self.contact_nos:
-      # get into the if, when contact_nos list has atleast 1 element
-      for contact_no in self.contact_nos:
-        part2 += contact_no + '\n'
-    else:
-      # contact_nos is None
-      # contact_nos is []
-      part2 += 'NA'
-    
-    return part1 + part2
-
-  def get_grade(self):
-    # s1, s2, s3, ... Student object
-    marks = self.marks
-    if marks > 100 or marks < 0:
-      grade = 'I'
-    elif marks >= 70:
-      grade = 'A'
-    elif marks >= 60:
-      grade = 'B'
-    elif marks >= 40:
-      grade = 'C'
-    else:
-      grade = 'F'
-    
-    return grade
-
-  def get_name_roll(self):
-    return (self.name, self.roll) # tuple object
